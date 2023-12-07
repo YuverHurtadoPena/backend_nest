@@ -1,0 +1,13 @@
+version: '3.3'
+
+services:
+  database:
+    image: postgres
+    environment:
+      - POSTGRES_DB=usuarios
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=202020Klender
+    ports:
+      - '5432:5432'
+    
+

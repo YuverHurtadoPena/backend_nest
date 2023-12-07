@@ -1,0 +1,15 @@
+{
+    "type": "postgres",
+    "host": "localhost",
+    "port": 5432,
+    "username": "postgres",
+    "password": "202020Klender",
+    "database": "usuarios",
+    "entities": ["src/**/*.entity.ts"],
+    "synchronize": true,
+    "migrationsTableName": "migrations",
+    "migrations": ["src/database/migrations/*.ts"],
+    "cli": {
+      "migrationsDir": "src/database/migrations"
+    }
+  }
