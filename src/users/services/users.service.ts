@@ -27,7 +27,7 @@ export class UsersService {
     }
     const id = body.rolId;
     const existingRol = await this.rolRepo.findOne({
-      where: { id },
+      where: { id, isDeleted: false },
     });
 
     if (!existingRol) {
@@ -60,7 +60,7 @@ export class UsersService {
     }
     const id = updateUserDto.rolId;
     const existingRol = await this.rolRepo.findOne({
-      where: { id },
+      where: { id, isDeleted: false },
     });
 
     if (!existingRol) {
@@ -108,7 +108,10 @@ export class UsersService {
   }
 
   async findUserByEmail(email: string): Promise<Users> {
-    const user = await this.userRepo.findOne({ where: { email } });
+    const user = await this.userRepo.findOne({
+      where: { email, isDeleted: false },
+      relations: ['rol'],
+    });
 
     if (!user) {
       throw new NotFoundException(

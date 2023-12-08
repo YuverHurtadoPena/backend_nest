@@ -22,6 +22,10 @@ export class AccessService {
     if (!isValidPassword) {
       throw new HttpException('error de credencial ', HttpStatus.NOT_FOUND);
     }
+    console.log(userInfo?.isDeleted + 'info' + userInfo?.rol?.isDeleted);
+    if (userInfo?.isDeleted || userInfo?.rol?.isDeleted) {
+      throw new HttpException('Usuario desactivado', HttpStatus.NOT_FOUND);
+    }
 
     const payload = { email: userInfo.email, id: userInfo.id };
     const token = this.jwtS.sign(payload);

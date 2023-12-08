@@ -38,7 +38,9 @@ export class RolesService {
   }
 
   getAll() {
-    return this.rolRepo.find();
+    return this.rolRepo.find({
+      where: { isDeleted: false },
+    });
   }
 
   async deleteRolOrRecuperar(id: number) {
@@ -62,7 +64,7 @@ export class RolesService {
 
   async updateRol(body: DtoRol): Promise<Rol> {
     const id = body.id;
-    const rol = await this.rolRepo.findOne({ where: { id } });
+    const rol = await this.rolRepo.findOne({ where: { id, isDeleted: false } });
 
     if (!rol) {
       throw new NotFoundException(`Rol con ID ${id} no encontrado`);
@@ -87,7 +89,7 @@ export class RolesService {
 
   async findRolById(id: number): Promise<Rol> {
     const rolById = await this.rolRepo.findOne({
-      where: { id },
+      where: { id, isDeleted: false },
     });
 
     if (rolById) {
