@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Rol } from 'src/roles/entities/rol.entity';
 import {
   Entity,
@@ -9,7 +10,7 @@ import {
 } from 'typeorm';
 
 @Entity()
-export class Usuario {
+export class Users {
   @PrimaryGeneratedColumn()
   id: number;
 

@@ -1,0 +1,160 @@
+{
+	"info": {
+		"_postman_id": "35285e67-76df-4a3e-95c6-e707db0190e7",
+		"name": "nest Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "27395422"
+	},
+	"item": [
+		{
+			"name": "borrar rol por id o lo recupera",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Inl1dmVsckBnbWFpbC5jb20iLCJpZCI6MiwiaWF0IjoxNzAyMDIwMjM1LCJleHAiOjE3MDIwNjM0MzV9.zFsM0uigm5lJ5Peo5l0KOeIX-RQQN1mtmEcl_XYlpxU"
+					}
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:3000/api/roles/1"
+			},
+			"response": []
+		},
+		{
+			"name": "lista de roles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:3000/api/roles"
+			},
+			"response": []
+		},
+		{
+			"name": "guardar rol",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:3000/api/roles"
+			},
+			"response": []
+		},
+		{
+			"name": "actualizar rol",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"usuario\",\r\n    \"id\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:3000/api/roles"
+			},
+			"response": []
+		},
+		{
+			"name": "buscar por id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:3000/api/roles/by-id/1"
+			},
+			"response": []
+		},
+		{
+			"name": "guardor usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"fullName\":  \"yuver hurtado\",\r\n  \"email\":\"yuver@gmail.com\",\r\n  \"password\":\"12345\",\r\n  \"phone\": \"123456789\",\r\n  \"rolId\": 1\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:3000/api/user"
+			},
+			"response": []
+		},
+		{
+			"name": "actualizar usuario",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"fullName\":  \"yuver hurtado\",\r\n  \"email\":\"yuver@gmail.com\",\r\n  \"password\":\"123458\",\r\n  \"phone\": \"123455789\",\r\n  \"rolId\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:3000/api/user"
+			},
+			"response": []
+		},
+		{
+			"name": "eliminar usuario o lo recupera",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": "localhost:3000/api/user/yuver@gmail.com"
+			},
+			"response": []
+		},
+		{
+			"name": "buscar usuario por email",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:3000/api/user/yuver@gmail.com"
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"email\":\"yuver@gmail.com\",\r\n  \"password\":\"12345\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:3000/api/login"
+			},
+			"response": []
+		}
+	]
+}

@@ -41,14 +41,18 @@ export class RolesService {
     return this.rolRepo.find();
   }
 
-  async deleteRol(id: number) {
+  async deleteRolOrRecuperar(id: number) {
     const rol = await this.rolRepo.findOne({ where: { id } });
 
     if (!rol) {
       throw new NotFoundException(`Rol con ID ${id} no encontrado`);
     }
 
-    rol.isDeleted = true;
+    if (rol.isDeleted) {
+      rol.isDeleted = false;
+    } else {
+      rol.isDeleted = true;
+    }
     rol.updatedAt = new Date();
 
     await this.rolRepo.save(rol);

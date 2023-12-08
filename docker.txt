@@ -1,0 +1,10 @@
+docker-compose up -d database
+docker-compose ps
+docker-compose exec database bash
+psql -h localhost -d usuarios -U postgres
+
+ALTER USER postgres WITH PASSWORD '202020Klender';
+CREATE DATABASE usuarios;
+docker logs
+
+docker run --name mi_postgres -e POSTGRES_PASSWORD=202020Klender -p 5432:5432 -d postgres
